@@ -1,45 +1,45 @@
 [
-	{
-	  "name": "Utils",
-	  "superclasses": "",
-	  "subclasses": "",
-	  "type": 1,
-	  "responsibilities": [
-		"Determine whether a cell is alive or not depending on whether it was alive or not and its number of neighbors",
-		"Generate a matrix of booleans from a representative string",
-		"Generate a representative string of a matrix of booleans"
-	  ],
-	  "collaborators": [
-		""
-	  ]
-	},
-	{
-	  "name": "GameOfLife",
-	  "superclasses": "",
-	  "subclasses": "",
-	  "type": 1,
-	  "responsibilities": [
-		"Store information about the matrix of cells it's made of",
-		"Update the state of the matrix of cells to the next generation"
-	  ],
-	  "collaborators": [
-		"Utils"
-	  ]
-	},
-	{
-	  "name": "Program",
-	  "superclasses": "",
-	  "subclasses": "",
-	  "type": 1,
-	  "responsibilities": [
-		"Create an instance of GameOfLife with the data of the file board.txt",
-		"Update the GameOfLife everytime a key is pressed",
-		"Print in Console the result of each generation",
-		"Stop the program if the key 'q' is pressed"
-	  ],
-	  "collaborators": [
-		"GameOfLife",
-		"Utils"
-	  ]
-	}
+    {
+      "name": "Utils",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "Determine whether a cell is alive or not depending on whether it was alive or not and its number of neighbors",
+        "Generate a matrix of booleans from a representative string",
+        "Generate a representative string of a matrix of booleans"
+      ],
+      "collaborators": [
+        ""
+      ]
+    },
+    {
+      "name": "GameOfLife",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "Store information about the matrix of cells it's made of",
+        "Update the state of the matrix of cells to the next generation"
+      ],
+      "collaborators": [
+        "Utils"
+      ]
+    },
+    {
+      "name": "Program",
+      "superclasses": "",
+      "subclasses": "",
+      "type": 1,
+      "responsibilities": [
+        "Create an instance of GameOfLife with the data of the file board.txt",
+        "Update the GameOfLife everytime a key is pressed",
+        "Print in Console the result of each generation",
+        "Stop the program if the key 'q' is pressed"
+      ],
+      "collaborators": [
+        "GameOfLife",
+        "Utils"
+      ]
+    }
   ]

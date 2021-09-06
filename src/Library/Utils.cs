@@ -19,6 +19,10 @@ namespace PII_Game_Of_Life
 		
 		/// <summary>
 		/// Generates a matrix of booleans from a string.
+		/// This function could appear as a method of `GameOfLife`, but it'd break the SRP principle,
+		/// because this responsibility is not directly associated with `GameOfLife`,
+		/// but instead, it just takes the data string and transforms it into a matrix of booleans.
+		/// Therefore, it's represented as a separate function.
 		/// </summary>
 		/// <param name="data">The string from which the matrix is created</param>
 		/// <returns>The resulting matrix of booleans.</returns>
@@ -66,9 +70,13 @@ namespace PII_Game_Of_Life
 
 		/// <summary>
 		/// Returns a representative string of a matrix of booleans.
+		/// This function could appear as a method of `GameOfLife`, but it'd break the SRP principle,
+		/// because this responsibility is not directly associated with `GameOfLife`,
+		/// but instead, it just takes the matrix of booleans and transforms it into a string.
+		/// Therefore, it's represented as a separate function.
 		/// </summary>
 		/// <param name="aliveStr">The string which represents an alive cell. "|X|" by default.</param>
-		/// <param name="deadStr">The string which represents a dead cell. A concatenation of '-' chars equally as long as `aliveStr` by default.</param>
+		/// <param name="deadStr">The string which represents a dead cell. A concatenation of '-' characters equally as long as `aliveStr` by default.</param>
 		/// <returns>A representative string of the matrix of booleans.</returns>
 		public static string MatrixToString(bool[,] matrix, string aliveStr = "|X|", string deadStr = null)
 		{
