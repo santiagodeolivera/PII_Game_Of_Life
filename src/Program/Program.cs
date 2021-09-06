@@ -9,11 +9,13 @@ namespace PII_Game_Of_Life
         {
             string url = @"../../assets/board.txt";
             string content = File.ReadAllText(url);
-            GameOfLife game = new GameOfLife(content);
+            bool[,] initialState = Utils.MatrixFromString(content);
+            GameOfLife game = new GameOfLife(initialState);
             Console.WriteLine(game.ToText());
             while(true)
             {
-                Console.ReadKey();
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                if (keyInfo.Key == ConsoleKey.Q) break;
                 for(byte i = 0; i < 8; i++) Console.WriteLine("");
                 game.Update();
                 Console.WriteLine(game.ToText());

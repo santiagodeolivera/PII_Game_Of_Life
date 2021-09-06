@@ -16,48 +16,13 @@ namespace PII_Game_Of_Life
 		public int Height { get => matrix.GetLength(1); }
 
 		/// <summary>
-		/// Build a `GameOfLife` object given a string representing the cell matrix.
+		/// Build a `GameOfLife` object given a matrix of booleans as the initial state.
 		/// It follows the SRP principle because it receives a string, instead of a file path, to do the job.
 		/// </summary>
-		/// <param name="data">The string representing the cell matrix</param>
-		public GameOfLife(string data)
+		/// <param name="data">The initial matrix of booleans.</param>
+		public GameOfLife(bool[,] matrix)
 		{
-			data = data.Replace("\r", "");
-			// Divide the data string into lines
-			string[] lines = data.Split('\n');
-
-			// Determine height
-			if (lines.Length == 0) throw new ArgumentException("The height of the matrix is 0");
-			int height = lines.Length;
-
-			// Determine width
-			int width = lines[0].Length;
-			foreach (string line in lines)
-				if (line.Length != width)
-					throw new ArgumentException("The rows must have equal width");
-			if(width == 0) throw new ArgumentException("The height of the matrix is 0");
-
-			this.matrix = new bool[width, height];
-
-			// Set state of cells according to data
-			for(int i = 0; i < this.Width; i++)
-			{
-				for(int j = 0; j < this.Height; j++)
-				{
-					char c = lines[j][i];
-					switch (c)
-					{
-						case '0':
-							matrix[i, j] = false;
-							break;
-						case '1':
-							matrix[i, j] = true;
-							break;
-						default:
-							throw new ArgumentException("The cells must be 0 or 1");
-					}
-				}
-			}
+			this.matrix = matrix;
 		}
 
 		/// <summary>
