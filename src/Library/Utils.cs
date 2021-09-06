@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace PII_Game_Of_Life
 {
@@ -61,6 +62,29 @@ namespace PII_Game_Of_Life
 			}
 
 			return matrix;
+		}
+
+		/// <summary>
+		/// Returns a representative string of a matrix of booleans.
+		/// </summary>
+		/// <param name="aliveStr">The string which represents an alive cell. "|X|" by default.</param>
+		/// <param name="deadStr">The string which represents a dead cell. A concatenation of '-' chars equally as long as `aliveStr` by default.</param>
+		/// <returns>A representative string of the matrix of booleans.</returns>
+		public static string MatrixToString(bool[,] matrix, string aliveStr = "|X|", string deadStr = null)
+		{
+			if(string.IsNullOrEmpty(aliveStr))
+				aliveStr ??= "|X|";
+			deadStr ??= new String('-', aliveStr.Length);
+			StringBuilder builder = new StringBuilder("");
+			for(int j = 0; j < matrix.GetLength(1); j++)
+			{
+				for(int i = 0; i < matrix.GetLength(0); i++)
+				{
+					builder.Append(matrix[i, j] ? aliveStr : deadStr);
+				}
+				builder.Append("\n");
+			}
+			return builder.ToString();
 		}
 	}
 }
