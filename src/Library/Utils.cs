@@ -4,12 +4,16 @@ using System.Text;
 namespace PII_Game_Of_Life
 {
 	/// <summary>
-	/// Esta clase almacena los métodos que no están asociados a ninguna clase.
+	/// This class stores methods associated with manipulating cells, as well as cell matrixes.
 	/// </summary>
-	public static class Utils
+	public static class CellUtils
 	{
 		/// <summary>
 		/// Returns whether a cell is alive in the next generation.
+		/// This function could appear as a method of GameOfLife, but it'd break the SRP principle,
+		/// because there are variants of the game of life which involve different rules concerning
+		/// survival, death and rebirth of cells.
+		/// Therefore, it's represented as a separate function.
 		/// </summary>
 		/// <param name="wasAlive">Whether the cell was alive in the previous generation.</param>
 		/// <param name="aliveNeighbors">The number of alive neighbors of the cell in the previous generation.</param>
@@ -19,8 +23,8 @@ namespace PII_Game_Of_Life
 		
 		/// <summary>
 		/// Generates a matrix of booleans from a string.
-		/// This function could appear as a method of `GameOfLife`, but it'd break the SRP principle,
-		/// because this responsibility is not directly associated with `GameOfLife`,
+		/// This function could appear as a method of GameOfLife, but it'd break the SRP principle,
+		/// because this responsibility is not directly associated with GameOfLife,
 		/// but instead, it just takes the data string and transforms it into a matrix of booleans.
 		/// Therefore, it's represented as a separate function.
 		/// </summary>
@@ -70,8 +74,8 @@ namespace PII_Game_Of_Life
 
 		/// <summary>
 		/// Returns a representative string of a matrix of booleans.
-		/// This function could appear as a method of `GameOfLife`, but it'd break the SRP principle,
-		/// because this responsibility is not directly associated with `GameOfLife`,
+		/// This function could appear as a method of GameOfLife, but it'd break the SRP principle,
+		/// because this responsibility is not directly associated with GameOfLife,
 		/// but instead, it just takes the matrix of booleans and transforms it into a string.
 		/// Therefore, it's represented as a separate function.
 		/// </summary>

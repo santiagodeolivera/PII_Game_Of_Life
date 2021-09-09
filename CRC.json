@@ -1,6 +1,6 @@
 [
     {
-      "name": "Utils",
+      "name": "CellUtils",
       "superclasses": "",
       "subclasses": "",
       "type": 1,
@@ -23,7 +23,7 @@
         "Update the state of the matrix of cells to the next generation"
       ],
       "collaborators": [
-        "Utils"
+        "CellUtils"
       ]
     },
     {
@@ -39,7 +39,7 @@
       ],
       "collaborators": [
         "GameOfLife",
-        "Utils"
+        "CellUtils"
       ]
     }
   ]

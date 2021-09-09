@@ -15,7 +15,7 @@ namespace PII_Game_Of_Life
 		public int Height { get => Matrix.GetLength(1); }
 
 		/// <summary>
-		/// Build a `GameOfLife` object given a matrix of booleans as the initial state.
+		/// Build a GameOfLife object given a matrix of booleans as the initial state.
 		/// </summary>
 		/// <param name="data">The initial matrix of booleans.</param>
 		public GameOfLife(bool[,] matrix)
@@ -26,7 +26,7 @@ namespace PII_Game_Of_Life
 		/// <summary>
 		/// Updates the cell matrix to the next generation.
 		/// It follows the Expert pattern because it needs to be able to read and write on the matrix of booleans,
-		/// which is an attribute of `GameOfLife`.
+		/// which is an attribute of GameOfLife.
 		/// </summary>
 		public void Update()
 		{
@@ -47,7 +47,7 @@ namespace PII_Game_Of_Life
 
 					if (this.Matrix[i, j]) aliveNeighbors--;
 
-					buffer[i, j] = Utils.IsAliveInNextGeneration(this.Matrix[i, j], aliveNeighbors);
+					buffer[i, j] = CellUtils.IsAliveInNextGeneration(this.Matrix[i, j], aliveNeighbors);
 				}
 				
 			this.Matrix = buffer;

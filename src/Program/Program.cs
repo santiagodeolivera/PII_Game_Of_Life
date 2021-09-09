@@ -12,11 +12,11 @@ namespace PII_Game_Of_Life
 			string content = File.ReadAllText(url);
 
 			// Transform the content into a string
-			bool[,] initialState = Utils.MatrixFromString(content);
+			bool[,] initialState = CellUtils.MatrixFromString(content);
 
 			// Initialize the game
 			GameOfLife game = new GameOfLife(initialState);
-			Console.WriteLine(Utils.MatrixToString(game.Matrix));
+			Console.WriteLine(CellUtils.MatrixToString(game.Matrix));
 			while(true)
 			{
 				// The game of life advances every time a key is pressed
@@ -25,9 +25,14 @@ namespace PII_Game_Of_Life
 				// If the key is 'q', the program stops
 				if (keyInfo.Key == ConsoleKey.Q) break;
 				
+				// Update the game
 				game.Update();
+
+				// Print empty lines to ease perception of different generations
 				for(byte i = 0; i < 8; i++) Console.WriteLine("");
-				Console.WriteLine(Utils.MatrixToString(game.Matrix));
+
+				// Print the next generation of cells
+				Console.WriteLine(CellUtils.MatrixToString(game.Matrix));
 			}
 		}
 	}
