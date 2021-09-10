@@ -16,7 +16,11 @@ namespace PII_Game_Of_Life
 
 			// Initialize the game
 			GameOfLife game = new GameOfLife(initialState);
+			
+			// Print initial state
+			Console.Clear();
 			Console.WriteLine(CellUtils.MatrixToString(game.Matrix));
+			
 			while(true)
 			{
 				// The game of life advances every time a key is pressed
@@ -28,8 +32,7 @@ namespace PII_Game_Of_Life
 				// Update the game
 				game.Update();
 
-				// Print empty lines to ease perception of different generations
-				for(byte i = 0; i < 8; i++) Console.WriteLine("");
+				Console.Clear();
 
 				// Print the next generation of cells
 				Console.WriteLine(CellUtils.MatrixToString(game.Matrix));
